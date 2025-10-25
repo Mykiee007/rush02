@@ -34,5 +34,9 @@ void	ft_putchar(char c);
 void	ft_putstr(char *s);
 char	*ft_strdup(char *s);
 char 	*ft_dict_content(char *fn);
+int		ft_group_count(char *str, char groups[13][4]);
+void	ft_power_str(int group, char *nbr);
+void	ft_convert_3digits(int nb);
+void	ft_number_to_word(char *str);
 
 #endif
