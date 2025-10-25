@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ptypes.h"
+#define MAX_DIGITS_UNDECILLION 37
 
 void	ft_handle_error(void)
 {
@@ -31,7 +32,13 @@ void	ft_check_if_num(char *s)
 
 	i = 0;
 	err = 0;
+	if (s[0] == '\0')
+    	ft_handle_error();
 	if (s[0] == '-')
+		ft_handle_error();
+	if (s[0] == '0' && s[1] != '\0')
+		ft_handle_error();
+	if (ft_len(s) > MAX_DIGITS_UNDECILLION)
 		ft_handle_error();
 	while (s[i] && err == 0)
 	{
