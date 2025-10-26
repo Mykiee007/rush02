@@ -63,32 +63,32 @@ void	ft_convert_3digits(int nb)
 {
 	if (nb == 0)
 		return;
-	if (ft_key(nb))
+	if (ft_search_content(nb, fn))
 	{
-		ft_putstr(ft_key(nb));
+		ft_putstr(ft_search_content(nb, fn));
 		return ;
 	}
 	if (nb >= 100)
 	{
-		ft_putstr(ft_key(nb / 100));
+		ft_putstr(ft_search_content(nb / 100, fn));
 		ft_putchar(' ');
-		ft_putstr(ft_key(100));
+		ft_putstr(ft_search_content(100, fn));
 		if (nb % 100)
 			ft_putchar(' ');
 		nb %= 100;
 	}
 	if (nb >= 20)
 	{
-		ft_putstr(ft_key((nb / 10) * 10));
+		ft_putstr(ft_search_content((nb / 10) * 10, fn));
 		if (nb % 10)
 		{
 			ft_putchar(' ');
-			ft_putstr(ft_key(nb % 10));
+			ft_putstr(ft_search_content(nb % 10), fn);
 		}
 	}
 	else if (nb > 0)
 	{
-		ft_putstr(ft_key(nb));
+		ft_putstr(ft_search_content(nb, fn));
 	}
 }
 
@@ -102,7 +102,7 @@ void	ft_number_to_word(char *str)
 
 	if (str[0] == '\0')
 	{
-		ft_putstr(ft_key('0'));
+		ft_putstr(ft_search_content('0', fn));
 		return ;
 	}
 	group_count = ft_group_count(str, groups);
@@ -118,7 +118,7 @@ void	ft_number_to_word(char *str)
 			{		
 				ft_power_str(i, power_str);
 				ft_putchar(' ');
-				ft_putstr(ft_key(power_str));
+				ft_putstr(ft_search_content(power_str, fn));
 				if (i != 0 || nbr != 0)
 					ft_putchar(' ');
 			}

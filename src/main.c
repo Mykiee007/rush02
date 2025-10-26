@@ -28,13 +28,12 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 		{
 			ft_check_if_num(argv[1]);
-			//TODO
-			//ft_parse_content_into_list(dict_content, &dict_list);
+			ft_number_to_word(argv[1], dict_content)
 		}
 		else
 		{
 			ft_check_if_num(argv[2]);
-			//TODO
+			ft_number_to_word(argv[2], argv[1])
 		}
 	}
 	free(dict_content);

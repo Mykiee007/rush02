@@ -39,6 +39,70 @@ char *ft_dict_content(char *fn)
 	return (content);
 }
 
+void	ft_search_content(char *str, char *fn)
+{
+	char *content;
+	int i;
+	int j;
+	char line_number[50];
+	int found;
+	int start;
+	int end;
+
+	content = ft_dict_content(fn);
+	if (!content)
+	{
+		ft_handle_dict_error();
+		return ;
+	}
+
+	i = 0;
+	found = 0;
+	while (content[i] != '\0')
+	{
+		j = 0;
+		while (content[i] && content[i] != ':' && content[i] != '\n')
+		{
+			line_num[j] = content[i];
+			j++;
+			i++;
+		}
+		line_num[j] = '\0';
+
+		if (ft_strcmp(line_num, str) == 0)
+		{
+			found = 1;;
+			if (content[i] == ':')
+				i++;
+			while (content[i] == ' ')
+				i++;
+			start = i;
+			end = i;
+			while (content[end] && content[end] != '\n')
+				end++;
+			while (end - 1 >= start && (content[end - 1] == ' ' || content[last] == '\t'))
+				last--;
+			if (last < start)
+			{
+				ft_dict_content();
+				free (content);
+				return ;
+			}
+			while (start <= end - 1)
+				{
+					ft_putchar(content[start]);
+					start++;
+				}
+			ft_putchar('\n');
+		}
+		i = ft_skip_line(content, i);
+	}
+	if (!found)
+		ft_handle_dict_error();
+
+	free(content);
+}
+
 /*
 char **ft_split(char *str, char *charset)
 {
