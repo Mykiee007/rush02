@@ -59,40 +59,41 @@ void	ft_power_str(int group, char *nbr)
 	nbr[i] = '\0';
 }
 
-void	ft_convert_3digits(int nb)
+void	ft_convert_3digits(int nb, char *fn)
 {
+	char temp[20];
+
 	if (nb == 0)
-		return;
-	if (ft_search_content(nb, fn))
-	{
-		ft_putstr(ft_search_content(nb, fn));
 		return ;
-	}
 	if (nb >= 100)
 	{
-		ft_putstr(ft_search_content(nb / 100, fn));
+		ft_itoa(nb / 100, temp);
+		ft_search_content(temp, fn);
 		ft_putchar(' ');
-		ft_putstr(ft_search_content(100, fn));
+		ft_search_content("100", fn);
 		if (nb % 100)
 			ft_putchar(' ');
 		nb %= 100;
 	}
 	if (nb >= 20)
 	{
-		ft_putstr(ft_search_content((nb / 10) * 10, fn));
+		ft_itoa((nb / 10) * 10, temp);
+		ft_search_content(temp, fn);
 		if (nb % 10)
 		{
 			ft_putchar(' ');
-			ft_putstr(ft_search_content(nb % 10), fn);
+			ft_itoa(nb % 10, temp);
+			ft_search_content(temp, fn);
 		}
 	}
 	else if (nb > 0)
 	{
-		ft_putstr(ft_search_content(nb, fn));
+		ft_itoa(nb, temp)
+		ft_search_content(temp, fn);
 	}
 }
 
-void	ft_number_to_word(char *str)
+void	ft_number_to_word(char *str, char *fn)
 {
 	char groups[13][4];
     char power_str[50];
@@ -102,7 +103,7 @@ void	ft_number_to_word(char *str)
 
 	if (str[0] == '\0')
 	{
-		ft_putstr(ft_search_content('0', fn));
+		ft_search_content("0", fn);
 		return ;
 	}
 	group_count = ft_group_count(str, groups);
@@ -110,15 +111,15 @@ void	ft_number_to_word(char *str)
     
 	while (i >= 0)
 	{
-        nbr = ft_atoi(groups[i]);
+		nbr = ft_atoi(groups[i]);
 		if (nbr != 0)
 		{
-			ft_convert_3digits(nbr);
+			ft_convert_3digits(nbr, fn);
 			if (i > 0)
 			{		
 				ft_power_str(i, power_str);
 				ft_putchar(' ');
-				ft_putstr(ft_search_content(power_str, fn));
+				ft_search_content(power_str, fn);
 				if (i != 0 || nbr != 0)
 					ft_putchar(' ');
 			}
