@@ -11,7 +11,7 @@
 
 #include "ptypes.h"
 
-char *ft_dict_content(char *fn)
+char	*ft_dict_content(char *fn)
 {
 	int fd;
 	int size;
@@ -79,7 +79,7 @@ void	ft_search_content(char *str, char *fn)
 
 		if (ft_strcmp(line_num, str) == 0)
 		{
-			found = 1;;
+			found = 1;
 			if (content[i] == ':')
 				i++;
 			while (content[i] == ' ' || content[i] == '\t')
@@ -101,7 +101,7 @@ void	ft_search_content(char *str, char *fn)
 					ft_putchar(content[start]);
 					start++;
 				}
-			ft_putchar('\n');
+			ft_putchar(' ');
 		}
 		i = ft_skip_line(content, i);
 	}

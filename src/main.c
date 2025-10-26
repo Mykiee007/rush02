@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ryatan <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mvelasqu <mvelasqu@student.42singapore.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 23:42:42 by ryatan            #+#    #+#             */
-/*   Updated: 2025/10/25 23:01:08 by ryatan           ###   ########.fr       */
+/*   Updated: 2025/10/26 22:06:02 by mvelasqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,7 @@
 int	main(int argc, char **argv)
 {
 	char	*dict_content;
-	//int	i;
-	//t_node	*dict_list;
 
-	dict_content = ft_dict_content("numbers.dict");
-
-	//new = 0;
 	if (argc < 2 || argc > 3)
 		ft_handle_error();
 	else
@@ -28,7 +23,7 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 		{
 			ft_check_if_num(argv[1]);
-			ft_number_to_word(argv[1], dict_content);
+			ft_number_to_word(argv[1], "numbers.dict");
 		}
 		else
 		{

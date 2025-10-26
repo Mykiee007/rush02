@@ -88,7 +88,7 @@ void	ft_convert_3digits(int nb, char *fn)
 	}
 	else if (nb > 0)
 	{
-		ft_itoa(nb, temp)
+		ft_itoa(nb, temp);
 		ft_search_content(temp, fn);
 	}
 }
@@ -120,8 +120,7 @@ void	ft_number_to_word(char *str, char *fn)
 				ft_power_str(i, power_str);
 				ft_putchar(' ');
 				ft_search_content(power_str, fn);
-				if (i != 0 || nbr != 0)
-					ft_putchar(' ');
+				ft_putchar(' ');
 			}
 		}
 		i--;
