@@ -27,13 +27,23 @@ char *ft_dict_content(char *fn)
 	if (!content)
 	{
 		ft_handle_dict_error();
+		free(content);
+		close(fd);
 		return (0);
 	}
 	size = read(fd, content, 1080);
+	if (size < 0)
+	{
+		ft_handle_dict_error();
+		free(content);
+		close(fd);
+		return (0);
+	}
 	content[size] = '\0';
 	if(close(fd) < 0)
 	{
 		ft_handle_dict_error();
+		free(content);
 		return (0);
 	}
 	return (content);
