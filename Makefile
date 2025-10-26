@@ -5,6 +5,7 @@ CFILES = helpers.c \
 	 errors.c \
 	 linkedlist.c \
 	 parse_dict.c \
+	 convert_number.c \
 	  main.c
 
 OBJECTS = $(CFILES:%.c=$(SRC_DIR)/%.o)
