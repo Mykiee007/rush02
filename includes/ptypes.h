@@ -33,10 +33,15 @@ void	ft_check_if_num(char *s);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 char	*ft_strdup(char *s);
+int		ft_atoi(char *str);
+void	ft_itoa(int nb, char *str);
+int		ft_skip_line(char *content, int i);
 char 	*ft_dict_content(char *fn);
+void	ft_search_content(char *str, char *fn);
 int		ft_group_count(char *str, char groups[13][4]);
 void	ft_power_str(int group, char *nbr);
 void	ft_convert_3digits(int nb);
 void	ft_number_to_word(char *str);
+
 
 #endif
