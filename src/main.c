@@ -28,12 +28,12 @@ int	main(int argc, char **argv)
 		if (argc == 2)
 		{
 			ft_check_if_num(argv[1]);
-			ft_number_to_word(argv[1], dict_content)
+			ft_number_to_word(argv[1], dict_content);
 		}
 		else
 		{
 			ft_check_if_num(argv[2]);
-			ft_number_to_word(argv[2], argv[1])
+			ft_number_to_word(argv[2], argv[1]);
 		}
 	}
 	free(dict_content);
