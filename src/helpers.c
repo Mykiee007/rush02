@@ -44,7 +44,7 @@ int ft_strcmp (char *s1, char *s2)
 	int	i;
 
 	i = 0;
-	while(s1[i] != '\0' && s2[1] != '\0' && s1[i] == s2[i])
+	while(s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 	{
 		i++;
 	}
@@ -115,7 +115,7 @@ void ft_itoa(int nb, char *str)
 
 int ft_skip_line(char *content, int i)
 {
-	while (content[i] && content[i]) != '\n'
+	while (content[i] && content[i] != '\n')
 		i++;
 	if (content[i] =='\n')
 		i++;
