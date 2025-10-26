@@ -84,6 +84,35 @@ int ft_atoi(char *str)
     return (result);
 }
 
+void ft_itoa(int nb, char *str)
+{
+	int i;
+	int temp;
+	int len;
+
+	if (nb == 0)
+	{
+		str[0] = '0';
+		str[1] = '\0';
+		return ;
+	}
+	len = 0;
+	temp = nb;
+	while (temp > 0)
+	{
+		temp /= 10;
+		len ++;
+	}
+	str[len] = '\0';
+	i = len - 1;
+	while (nb > 0)
+	{
+		str[i] = (nb % 10) + '0';
+		nb /= 10;
+		i--;
+	}
+}
+
 int ft_skip_line(char *content, int i)
 {
 	while (content[i] && content[i]) != '\n'
