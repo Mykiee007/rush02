@@ -15,14 +15,15 @@
 
 void	ft_handle_error(void)
 {
-	ft_putstr("Error");
-	ft_putchar('\n');
+	ft_putstr("Error\n");
+	exit(1) ;
 }
 
 void	ft_handle_dict_error(void)
 {
 	ft_putstr("Dict Error");
 	ft_putchar('\n');
+	exit(1) ;
 }
 
 void	ft_check_if_num(char *s)
