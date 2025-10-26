@@ -39,6 +39,18 @@ int	ft_len(char *str)
 	return (i);
 }
 
+int ft_strcmp (char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while(s1[i] != '\0' && s2[1] != '\0' && s1[i] == s2[i])
+	{
+		i++;
+	}
+	return (s1[i] - s2[i]);
+}
+
 char	*ft_strdup(char	*str)
 {
 	char	*dup;
@@ -55,6 +67,30 @@ char	*ft_strdup(char	*str)
 	}
 	dup[i] = '\0';
 	return (dup);
+}
+
+int ft_atoi(char *str)
+{
+    int i;
+    int result;
+
+    i = 0;
+    result = 0;
+    while (str[i] != '\0')
+    {
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+    return (result);
+}
+
+int ft_skip_line(char *content, int i)
+{
+	while (content[i] && content[i]) != '\n'
+		i++;
+	if (content[i] =='\n')
+		i++;
+	return (i);
 }
 
 /*========testing
