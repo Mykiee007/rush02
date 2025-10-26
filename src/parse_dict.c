@@ -27,7 +27,6 @@ char *ft_dict_content(char *fn)
 	if (!content)
 	{
 		ft_handle_dict_error();
-		free(content);
 		close(fd);
 		return (0);
 	}
@@ -35,7 +34,6 @@ char *ft_dict_content(char *fn)
 	if (size < 0)
 	{
 		ft_handle_dict_error();
-		free(content);
 		close(fd);
 		return (0);
 	}
@@ -54,10 +52,10 @@ void	ft_search_content(char *str, char *fn)
 	char *content;
 	int i;
 	int j;
-	char line_number[50];
+	char line_num[50];
 	int found;
 	int start;
-	int end;
+	int last;
 
 	content = ft_dict_content(fn);
 	if (!content)
@@ -84,21 +82,21 @@ void	ft_search_content(char *str, char *fn)
 			found = 1;;
 			if (content[i] == ':')
 				i++;
-			while (content[i] == ' ')
+			while (content[i] == ' ' || content[i] == '\t')
 				i++;
 			start = i;
-			end = i;
-			while (content[end] && content[end] != '\n')
-				end++;
-			while (end - 1 >= start && (content[end - 1] == ' ' || content[last] == '\t'))
+			last = i;
+			while (content[last] && content[last] != '\n')
+				last++;
+			while (last - 1 >= start && (content[last - 1] == ' ' || content[last - 1] == '\t'))
 				last--;
 			if (last < start)
 			{
-				ft_dict_content();
-				free (content);
+				ft_handle_dict_error();
+				free(content);
 				return ;
 			}
-			while (start <= end - 1)
+			while (start <= last - 1)
 				{
 					ft_putchar(content[start]);
 					start++;
